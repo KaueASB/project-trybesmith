@@ -7,7 +7,8 @@ const orderModel = {
     from Trybesmith.Orders as o
     inner join Trybesmith.Products as p
     on o.id = p.orderId
-    GROUP BY o.id, o.userId;`;
+    GROUP BY o.id
+    ORDER BY o.userId;`;
     const result = await connection.query(sql);
     const [rows] = result;
     return rows as [];
