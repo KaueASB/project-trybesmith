@@ -1,8 +1,8 @@
 import { ResultSetHeader } from 'mysql2';
-import IProducts from '../interfaces/interface';
+import { IProducts } from '../interfaces/interface';
 import connection from './connection';
 
-const TABLE = 'Trybesmith';
+const { TABLE } = process.env;
 
 const productModel = {
   async create({ name, amount }: IProducts) {
@@ -16,7 +16,7 @@ const productModel = {
     const sql = `select * from ${TABLE}.Products`;
     const result = await connection.query(sql);
     const [rows] = result;
-    return rows as []; 
+    return rows as [];
   },
 };
 
