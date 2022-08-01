@@ -4,13 +4,11 @@ import productModel from '../models/productModel';
 import { IProducts } from '../interfaces/interface';
 
 const productService = {
-  async validateFields(body: IProducts) {
+  async validateFields(body: IProducts): Promise<void> {
     const schema = Joi.object({
       name: Joi.string().required().min(3),
       amount: Joi.string().required().min(3),
     });
-    
-    console.log('schema: ', schema);
     await schema.validateAsync(body);
   },
 

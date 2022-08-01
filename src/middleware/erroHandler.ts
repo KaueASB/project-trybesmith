@@ -10,7 +10,7 @@ const errors: Record<string, number> = {
 const erroHandler = (err: Error, req: Request, res: Response, _next: NextFunction) => {
   const { name, message } = err;
   const status = errors[name];
-  if (message.includes('must be a')) {
+  if (message.includes('must be ')) {
     return res.status(422).json({ message });
   }
   if (!status) return res.status(500).json({ message });
