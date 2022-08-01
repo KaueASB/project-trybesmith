@@ -3,6 +3,7 @@ import productService from '../services/productService';
 
 class ProductController {
   public create = async (req: Request, res: Response) => {
+    await productService.validateFields(req.body);
     const productCreated = await productService.create(req.body);
     res.status(201).json(productCreated);
   };

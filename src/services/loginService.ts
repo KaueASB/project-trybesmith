@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import ThrowsErrors from '../errors/errors';
+import ThrowsErrors from '../errors/ThrowErrors';
 import { IUser, ILogin } from '../interfaces/interface';
 
 const JWT_SECRET = process.env.SECRET || 'MINHASENHASECRETA';

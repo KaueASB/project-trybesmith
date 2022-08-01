@@ -7,7 +7,7 @@ const loginController = {
     await loginService.validateLogin(req.body);
     const user = await userService.findOne(req.body);
 
-    const { password, ...data } = user;
+    const { password, ...data } = user;    
     const token = loginService.createToken(data);
 
     res.status(200).json({ token });

@@ -3,7 +3,6 @@ import loginController from '../controllers/loginController';
 
 const router = Router();
 
-router.route('/')
-  .post(loginController.login);
+router.post(('/'), loginController.login);
 
 export default router;

@@ -1,7 +1,7 @@
 import userModel from '../models/userModel';
 import { ILogin, IUser } from '../interfaces/interface';
 import loginService from './loginService';
-import ThrowsErrors from '../errors/errors';
+import ThrowsErrors from '../errors/ThrowErrors';
 
 const userService = {
   async create(user: IUser): Promise<string> {
