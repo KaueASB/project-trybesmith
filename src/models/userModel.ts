@@ -1,4 +1,4 @@
-import { ResultSetHeader } from 'mysql2';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import { IUser } from '../interfaces/interface';
 import connection from './connection';
 
@@ -17,6 +17,12 @@ const userModel = {
     const result = await connection.query(sql);
     const [rows] = result;
     return rows as [];
+  },
+
+  async findOne(username: string): Promise<IUser> {
+    const sql = 'select * from Trybesmith.Users where username = ?';
+    const [[row]] = await connection.query<RowDataPacket[]>(sql, [username]);
+    return row as IUser;
   },
 };
 
