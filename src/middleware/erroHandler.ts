@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 
 const errors: Record<string, number> = {
   ValidationError: 400,
+  NotFoundError: 401,
   RequiredError: 400,
   UnauthorizedError: 401,
   Unprocessable_Entity: 422,
